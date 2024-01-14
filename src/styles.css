@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Manrope', sans-serif !important;
+}
+
+button:not(td.edit-buttons button){
+    padding: 15px 2%;
+    border-radius: 5px;
+    letter-spacing: .2rem;
+    background-color: transparent;
+    position: relative;
+    font-weight: bold;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.151);
+}
+
+button:not(td.edit-buttons button)::after {
+    content: "";
+    background-color: #FED100;
+    color: white !important;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
+    border-radius: 5px;
+    z-index: -2;
+    transition: ease-in-out 0.2s;
+}
+
+button:not(td.edit-buttons button):hover::after {
+    width: 100%;
+    color: white !important;
+}
+
+.brand-colored{
+    color: #FED100;
+}
+
+h1,h2{
+    font-family: TwCenBold,sans-serif;
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+.header-indent{
+    width: 0.5rem;
+    height: 1.5rem;
+    background-color: #fed100;
+    margin-right: 1rem;
+}

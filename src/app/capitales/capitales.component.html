@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="py-3">
+            <div class="row">
+                <div class="col d-flex flex-row align-items-center">
+                    <div class="header-indent"></div>
+                    <h2 class="my-3">List of Capitales</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <caption>Capitales</caption>
+                            <thead >
+                                <tr>
+                                    <th scope="col-2" class="text-center">Capital</th>
+                                    <th scope="col-2" class="text-center">Population</th>
+                                    <th scope="col-2" class="text-center">Longitude</th>
+                                    <th scope="col-2" class="text-center">latitude</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tr *ngFor="let capitale of capitales">
+                                <td id="cell">{{capitale.name}}</td>
+                                <td id="cell" >{{capitale.population}}</td>
+                                <td id="cell" >{{capitale.lng}}</td>
+                                <td id="cell" >{{capitale.lat}}</td>
+                                <td class="text-center edit-buttons">
+                                    <button (click)="editCity(capitale)" name="edit" class="btn"><img src="assets/edit.png" width="20" alt="edit" class="icon" /></button>
+                                    <button (click)="deleteCity(capitale.name)" name="delete" class="btn"><img src="assets/delete.png"  width="20" alt="delete" class="icon" /></button>
+                                </td>
+                            </tr>
+                            <tfoot>
+                                <tr id="addNew">
+                                    <td colSpan="4"></td>
+                                    <td class="text-center col-1 edit-buttons">
+                                        <button class="btn" (click)="addCity()"><img src="assets/plus.png" width="20"  alt="add" class="icon" /></button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <app-editcapital *ngIf="shouldAdd || shouldEdit" 
+    [closeEditcomp]="closeEditing" 
+    [cityToEdit]="cityToEdit" 
+    [editCallbackFunction]="editCity" 
+    [addCallbackFunction]="addCallbackCity" 
+    [shouldEdit]="shouldEdit" 
+    [shouldAdd]="shouldAdd">
+</app-editcapital>
+</div>

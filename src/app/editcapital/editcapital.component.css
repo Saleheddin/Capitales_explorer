@@ -1,0 +1,38 @@
+caption{
+    display: none;
+}
+
+.table{
+    border-radius: 5px !important;
+}
+.edit-create-capitals h2{
+    text-transform: capitalize;
+}
+
+button[type="submit"]{
+    width: 100% !important;
+}
+
+button[class="save"]{
+    background-color: #fed100 !important;
+}
+button[class="save"]:hover{
+    background-color: #fecf009c !important;
+}
+button[class="cancel"]{
+    background-color:black !important;
+    color: white;
+}
+button[class="cancel"]:hover{
+    background-color:rgba(0, 0, 0, 0.663) !important;
+    color: white;
+}
+tr:nth-child(odd):not(.buttons){
+    --bs-table-bg: #fecf0057;
+}
+table input:nth-child(odd){
+    background-color:transparent;
+}
+table input{
+    border: none;
+}

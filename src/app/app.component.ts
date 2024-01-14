@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CapitalesService } from './capitales.service';
 
 @Component({
   selector: 'app-root',

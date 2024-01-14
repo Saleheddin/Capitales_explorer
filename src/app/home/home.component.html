@@ -1,0 +1,32 @@
+<div class="container home">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex flex-row align-items-center">
+        <div class="header-indent"></div>
+      <h1 class="">Explore <span>capitals</span>.</h1>
+      </div>
+      <p class="my-4">Embark on an exciting adventure to discover details such as population, location and much more. 
+       <br> Can't find your capital city? Add it and make sure the information is correct!</p>
+        <button routerLink="/capitales">Edit Capitals</button>
+      </div>
+    <div class=" col-6">
+      <google-map class ="map-card col-6" height="50vh"
+            width="100%"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+            <map-marker 
+            #marker="mapMarker" 
+            *ngFor="let markerPosition of markerPositions"
+            [position]="{ lat: markerPosition.lat, lng: markerPosition.lng }"
+            (mapClick)="openInfoWindow(marker,markerPosition)">
+              <map-info-window *ngIf="selectedMarkerPosition">
+                <strong>{{ selectedMarkerPosition.name }}</strong><br>
+                Population: {{ selectedMarkerPosition.population }}
+              </map-info-window>
+            </map-marker>
+    </google-map>
+    </div>
+  </div>
+</div>

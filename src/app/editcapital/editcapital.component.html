@@ -1,0 +1,50 @@
+<div class="container edit-create-capitals">
+    <div class="row">
+        <div class="col-md-12 py-4 d-flex flex-row align-items-center">
+            <div class="header-indent"></div>
+            <h2 class=""><span class="brand-colored" *ngIf="shouldAdd" >Create new</span> <span class="brand-colored" *ngIf="shouldEdit"> edit</span> Capital.</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped edit-table">
+                    <caption >Capitals</caption>
+                    <tbody>
+                        <tr>
+                            <th scope="col">Capital</th>
+                            <td *ngIf="shouldEdit">{{cityToEdit.name}}</td>
+                            <td *ngIf="shouldAdd"><input type="text" class="form-control" placeholder="Enter Capital name" (input)="handleChangeName($event)" /></td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Population</th>
+                            <td *ngIf="shouldEdit"><input type="text" class="form-control" (input)="handleChangePopulation($event)" value={{cityToEdit.population}} /></td>
+                            <td *ngIf="shouldAdd"><input type="text" class="form-control" placeholder="Enter population" (input)="handleChangePopulation($event)" value={{addedCity.population}} /></td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Longitude</th>
+                            <td *ngIf="shouldEdit" ><input type="text" class="form-control" (input)="handleChangeLongitude($event)" value={{cityToEdit.lng}} /></td>
+                            <td *ngIf="shouldAdd"><input type="text" class="form-control" placeholder="Enter longitude" (input)="handleChangeLongitude($event)" value={{addedCity.lng}} /></td>
+                        </tr>
+                        <tr>
+                            <th scope="col">latitude</th>
+                            <td *ngIf="shouldEdit" ><input type="text" class="form-control" placeholder="Enter latitude" (input)="handleChangelatitude($event)" value={{cityToEdit.lat}} /></td>
+                            <td *ngIf="shouldAdd" ><input type="text" class="form-control" placeholder="Enter latitude" (input)="handleChangelatitude($event)" value={{addedCity.lat}} /></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="buttons">
+                            <td colSpan="1" class="text-center">
+                                <button type="submit" class="cancel" (click)="cancel()">Cancel</button>
+                            </td>
+                            <td colSpan="1" class="text-center">
+                                <button type="submit" class="save" (click)="saveCapital()">Save</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</div>

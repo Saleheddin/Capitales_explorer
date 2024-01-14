@@ -1,0 +1,39 @@
+td:not(.edit-buttons){
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid ;
+}
+
+td.edit-buttons {
+    border: 1px solid;
+}
+
+
+caption {
+    display: none;
+}
+
+#cell:hover {
+    background-color: #fecf004d;
+
+}
+
+th {
+    background-color: #fed100;
+}
+
+button>img {
+    width: 20;
+    transition: ease-in-out 0.3s;
+}
+
+button:hover>img {
+    width: 25px;
+    transform: translateY(-3px);
+}
+
+
+button {
+    height: 40px;
+    width: 50px;
+}
