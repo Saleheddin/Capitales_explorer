@@ -11,12 +11,14 @@ import { CapitalesService } from '../capitales.service';
 export class HomeComponent {
   constructor(private capitalesService: CapitalesService) { }
   ownLocation: any;
+  markerPositions: any;
   ngOnInit(): void {
     this.markerPositions = this.capitalesService.getCities();
     this.ownLocation = this.getUserLocation();
     this.capitalesService.setCurrentComponent(0);
     console.log("currentcomponent: home");
     console.log(this.capitalesService.currentComponent);
+    console.log("capitals should show on home",this.markerPositions);
   }
   getUserLocation() {
     navigator.geolocation.getCurrentPosition(
@@ -50,7 +52,7 @@ export class HomeComponent {
   move(event: google.maps.MapMouseEvent) {
     if (event.latLng != null) this.display = event.latLng.toJSON();
   }
-  markerPositions: any;
+ 
 
   openInfoWindow(marker: MapMarker, markerPosition: any) {
     this.selectedMarkerPosition = markerPosition;

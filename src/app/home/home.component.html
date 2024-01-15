@@ -19,7 +19,7 @@
             <map-marker 
             #marker="mapMarker" 
             *ngFor="let markerPosition of markerPositions"
-            [position]="{ lat: markerPosition.lat, lng: markerPosition.lng }"
+            [position]="{ lat: +markerPosition.lat, lng: +markerPosition.lng }"
             (mapClick)="openInfoWindow(marker,markerPosition)">
               <map-info-window *ngIf="selectedMarkerPosition">
                 <strong>This is : {{ selectedMarkerPosition.name }}</strong><br>

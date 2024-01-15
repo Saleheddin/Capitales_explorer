@@ -28,7 +28,7 @@ export class CapitalesService {
 
   getCities() {
     const storedCities = localStorage.getItem(this.storageKey);
-    const capitales = storedCities ? JSON.parse(storedCities) : [];
+    const capitales = storedCities ? JSON.parse(storedCities):[];
     return capitales;
   }
 

@@ -26,10 +26,14 @@ export class EditcapitalComponent {
 
   // this function is to avoid having the updates directly on the table(cityToEdit)
   getCityToEdit(){
-    this.editedCity.name = this.cityToEdit.name;
-    this.editedCity.population = this.cityToEdit.population;
-    this.editedCity.lng = this.cityToEdit.lng;
-    this.editedCity.lat = this.cityToEdit.lat;
+    if (this.cityToEdit) {
+      this.editedCity.name = this.cityToEdit.name;
+      this.editedCity.population = this.cityToEdit.population;
+      this.editedCity.lng = this.cityToEdit.lng;
+      this.editedCity.lat = this.cityToEdit.lat;
+    } else {
+      console.warn("City to edit is undefined");
+    }
   }
 
   handleChangeName(event: any) {
@@ -47,7 +51,7 @@ export class EditcapitalComponent {
   handleChangeLongitude(event: any){
     
     if(this.shouldAdd){
-      this.addedCity.lng = event.target.value;
+      this.addedCity.lng = event.target.value as number;
     }else if(this.shouldEdit){
       this.editedCity.lng = event.target.value;
     }
@@ -55,7 +59,7 @@ export class EditcapitalComponent {
 
   handleChangelatitude(event: any){
     if(this.shouldAdd){
-      this.addedCity.lat = event.target.value;
+      this.addedCity.lat = event.target.value as number;
     }else if(this.shouldEdit){
       this.editedCity.lat = event.target.value; 
     }
@@ -83,5 +87,6 @@ export class EditcapitalComponent {
   cancel(){
     alert("Do you want to cancel your changes?");
     this.closeEditcomp("cancel");
+    this.closeAddcomp("cancel");
   }
 }
