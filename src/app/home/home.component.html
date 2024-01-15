@@ -26,6 +26,11 @@
                 Population: {{ selectedMarkerPosition.population }}
               </map-info-window>
             </map-marker>
+            <map-marker 
+            *ngIf="ownLocation" 
+            [position]="{ lat: ownLocation.lat, lng: ownLocation.lng }" 
+            [icon]="userMarkerIcon">
+          </map-marker>
     </google-map>
     </div>
   </div>
