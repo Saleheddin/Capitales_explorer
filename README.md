@@ -1,27 +1,27 @@
-# CapitalesExplorer
+# Capitals Explorer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+**Capitals Explorer** is a web application that allows users to explore and manage information about various capitals around the world. The application leverages the Google Maps API for visual representation and provides functionality to edit, delete, and add new capitals.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Home Component:** Displays a map with markers for each capital using the Google Maps API.
 
-## Code scaffolding
+- **Capitals Component:** Shows a table listing all capitals with a call-to-action button to edit the capitals.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **EditCapital Component:** A dedicated component for editing or adding new capitals. It ensures data integrity by preventing the addition of cities with duplicate names or empty names.
+- **CapitalsService:** Manages changes to the capitals data and updates the **local storage**.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+### 1. Home Component
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Upon launching the application, the Home component will display a map with markers for each capital. Clicking on the markers provides details about each capital.
 
-## Running end-to-end tests
+### 2. Capitals Component
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Navigate to the Capitals component to view a table listing all capitals. From here, you can click on the "Edit" button to make modifications to existing capitals.
 
-## Further help
+### 3. EditCapital Component
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To edit or add new capitals, use the EditCapital component. Ensure that the capital name is **unique** and not **empty**. You have the option to cancel changes before saving.
