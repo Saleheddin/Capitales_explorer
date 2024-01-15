@@ -68,12 +68,12 @@ export class EditcapitalComponent {
       const editedCity = this.getCityToEdit();
       this.editCallbackFunction(editedCity);
     }
-    this.closeEditcomp();
+    this.closeEditcomp("save");
     this.addedCity = { lat: 0, lng: 0, name: '', population: 0 };
   }
 
   cancel(){
     alert("Do you want to cancel your changes?");
-    this.closeEditcomp();
+    this.closeEditcomp("cancel");
   }
 }
