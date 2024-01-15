@@ -6,9 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './editcapital.component.css'
 })
 export class EditcapitalComponent {
-  constructor(){
-    
-  }
 
   @Input() cityToEdit: any;
   @Input() editCallbackFunction:any;
@@ -16,15 +13,19 @@ export class EditcapitalComponent {
   @Input() closeEditcomp: any;
   @Input() shouldEdit: any;
   @Input() shouldAdd: any;
-  addedCity: any= { lat: 0, lng: 0, name: '', population: 0 };
+  addedCity: any = { lat: 0, lng: 0, name: '', population: 0 };
   editedCity:any = { lat: 0, lng: 0, name: '', population: 0 };
 
   ngOnInit(){
+    console.log("edit component mounted");
+    console.log("should add ? ",this.shouldAdd);
+  }
+
+  getCityToEdit(){
     this.editedCity.name = this.cityToEdit.name;
     this.editedCity.population = this.cityToEdit.population;
     this.editedCity.lng = this.cityToEdit.lng;
     this.editedCity.lat = this.cityToEdit.lat;
-    console.log("should add ? ",this.shouldAdd);
   }
 
   handleChangeName(event: any) {
@@ -64,7 +65,8 @@ export class EditcapitalComponent {
       // this added city should reset when the city is already added to the localStorge
     }else{
       console.log("saving the city : ",this.editedCity)
-      this.editCallbackFunction(this.editedCity);
+      const editedCity = this.getCityToEdit();
+      this.editCallbackFunction(editedCity);
     }
     this.closeEditcomp();
     this.addedCity = { lat: 0, lng: 0, name: '', population: 0 };
