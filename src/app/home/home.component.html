@@ -5,8 +5,8 @@
         <div class="header-indent"></div>
       <h1 class="">Explore <span>capitals</span>.</h1>
       </div>
-      <p class="my-4">Embark on an exciting adventure to discover details such as population, location and much more. 
-       <br> Can't find your capital city? Add it and make sure the information is correct!</p>
+      <p class="my-4">Discover details such as population, location and much more. 
+        Can't find your capital city? <br>Add it and make sure the information is correct!</p>
         <button routerLink="/capitales">Edit Capitals</button>
       </div>
     <div class=" col-6">
@@ -22,7 +22,7 @@
             [position]="{ lat: markerPosition.lat, lng: markerPosition.lng }"
             (mapClick)="openInfoWindow(marker,markerPosition)">
               <map-info-window *ngIf="selectedMarkerPosition">
-                <strong>{{ selectedMarkerPosition.name }}</strong><br>
+                <strong>This is : {{ selectedMarkerPosition.name }}</strong><br>
                 Population: {{ selectedMarkerPosition.population }}
               </map-info-window>
             </map-marker>

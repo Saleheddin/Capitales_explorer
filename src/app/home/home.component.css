@@ -35,3 +35,10 @@ map-info-window{
     width: 100%;
     max-width: 100%;
 }
+
+button.gm-ui-hover-effect{
+    margin: 5px !important;
+}
+.gmnoprint > *{
+    margin-inline : 5px !important
+}
