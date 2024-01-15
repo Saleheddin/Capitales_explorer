@@ -28,30 +28,38 @@ export class CapitalesComponent {
     this.cityToEdit = city;
     this.shouldEdit = true;
     this.shouldAdd = false;
-    this.capitalesService.updateCity(city);
   }
 
-  deleteCity(cityName: String) {
+  editCallbackCity =(city: any)=>{
+    console.log("inside edit callback function",city);
+    this.capitalesService.updateCity(city);
+    this.capitales = this.capitalesService.getCities();
+  }
+
+  deleteCity(cityName: string) {
     this.capitales = this.capitales.filter(marker => marker.name !== cityName);
     this.capitalesService.deleteCity(cityName);
   }
 
   closeEditing = (feedback: string) => {
     if (feedback == "save") {
+      this.capitales = this.capitalesService.getCities();
+    }
+    this.shouldEdit = false;
+  }
+
+  closeAdding = (feedback: string) => {
+    if (feedback == "save") {
       this.closingFeedback = this.capitalesService.canAddfeedback;
       if (this.closingFeedback) {
         this.shouldAdd = false;
-        alert("Your capital was added successfully");
       } else {
         alert("Can't add this capital! it already exists");
       }
-      this.shouldEdit = false;
       this.capitales = this.capitalesService.getCities();
     }else{
-      this.shouldEdit = false;
       this.shouldAdd = false;
     }
-    
   }
 
   addCallbackCity = (city: any) => {

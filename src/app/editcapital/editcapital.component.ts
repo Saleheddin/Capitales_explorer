@@ -11,16 +11,20 @@ export class EditcapitalComponent {
   @Input() editCallbackFunction:any;
   @Input() addCallbackFunction:any;
   @Input() closeEditcomp: any;
+  @Input() closeAddcomp: any;
   @Input() shouldEdit: any;
   @Input() shouldAdd: any;
-  addedCity: any = { lat: 0, lng: 0, name: '', population: 0 };
+  addedCity:any = { lat: 0, lng: 0, name: '', population: 0 };
   editedCity:any = { lat: 0, lng: 0, name: '', population: 0 };
 
   ngOnInit(){
     console.log("edit component mounted");
     console.log("should add ? ",this.shouldAdd);
+    console.log("city to edit ? ",this.cityToEdit);
+    this.getCityToEdit();
   }
 
+  // this function is to avoid having the updates directly on the table(cityToEdit)
   getCityToEdit(){
     this.editedCity.name = this.cityToEdit.name;
     this.editedCity.population = this.cityToEdit.population;
@@ -35,7 +39,7 @@ export class EditcapitalComponent {
   handleChangePopulation(event: any){
     if(this.shouldAdd){
       this.addedCity.population = event.target.value;
-    }else{
+    }else if(this.shouldEdit){
       this.editedCity.population = event.target.value;
     }
   }
@@ -44,7 +48,7 @@ export class EditcapitalComponent {
     
     if(this.shouldAdd){
       this.addedCity.lng = event.target.value;
-    }else{
+    }else if(this.shouldEdit){
       this.editedCity.lng = event.target.value;
     }
   }
@@ -52,7 +56,7 @@ export class EditcapitalComponent {
   handleChangelatitude(event: any){
     if(this.shouldAdd){
       this.addedCity.lat = event.target.value;
-    }else{
+    }else if(this.shouldEdit){
       this.editedCity.lat = event.target.value; 
     }
   }
@@ -62,13 +66,17 @@ export class EditcapitalComponent {
       console.log("adding the city : ",this.addedCity)
       const cityToAdd = this.addedCity;
       this.addCallbackFunction(cityToAdd);
+      //close the addcomponent
+      this.closeAddcomp("save");
       // this added city should reset when the city is already added to the localStorge
-    }else{
-      console.log("saving the city : ",this.editedCity)
-      const editedCity = this.getCityToEdit();
+    }else if(this.shouldEdit){
+      console.log("saving the city : ",this.editedCity);
+      // we get the updated city
+      const editedCity = this.editedCity;
       this.editCallbackFunction(editedCity);
+      //close the editcomponent
+      this.closeEditcomp('save');
     }
-    this.closeEditcomp("save");
     this.addedCity = { lat: 0, lng: 0, name: '', population: 0 };
   }
 

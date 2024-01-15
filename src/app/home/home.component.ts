@@ -1,4 +1,4 @@
-import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CapitalesService } from '../capitales.service';
 
@@ -55,6 +55,5 @@ export class HomeComponent {
   openInfoWindow(marker: MapMarker, markerPosition: any) {
     this.selectedMarkerPosition = markerPosition;
     if (this.infoWindow != undefined) this.infoWindow.open(marker);
-
   }
 }

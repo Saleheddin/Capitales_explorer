@@ -2,12 +2,13 @@
     <a class="navbar-brand" href="#">
         <img src="assets/Logo-Beecoming.png" width="120" height="80" alt="Logo">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button (click)="toggleNav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" *ngIf="!isNavOpen"></span>
+        <span className="py-3 px-3 close" *ngIf="isNavOpen">X</span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div [ngClass]="{'collapse':true,'navbar-collapse':true,'show':isNavOpen}" id="navbarSupportedContent" >
         <ul class="navbar-nav mr-auto">
             <li [ngClass]="{'nav-item':true,'active':activeLink == 0}" (click)="getCurrentPageIndex()">
                 <a class="nav-link" routerLink="/">Home</a>

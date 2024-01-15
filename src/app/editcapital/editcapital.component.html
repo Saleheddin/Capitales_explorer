@@ -18,18 +18,18 @@
                         </tr>
                         <tr>
                             <th scope="col">Population</th>
-                            <td *ngIf="shouldEdit"><input type="text" class="form-control" (input)="handleChangePopulation($event)" value={{cityToEdit.population}} /></td>
-                            <td *ngIf="shouldAdd"><input type="text" class="form-control" placeholder="Enter population" (input)="handleChangePopulation($event)" value={{addedCity.population}} /></td>
+                            <td *ngIf="shouldEdit"><input type="number" class="form-control" (input)="handleChangePopulation($event)" value={{cityToEdit.population}} /></td>
+                            <td *ngIf="shouldAdd"><input type="number" class="form-control" placeholder="Enter population" (input)="handleChangePopulation($event)" value={{addedCity.population}} /></td>
                         </tr>
                         <tr>
                             <th scope="col">Longitude</th>
-                            <td *ngIf="shouldEdit" ><input type="text" class="form-control" (input)="handleChangeLongitude($event)" value={{cityToEdit.lng}} /></td>
-                            <td *ngIf="shouldAdd"><input type="text" class="form-control" placeholder="Enter longitude" (input)="handleChangeLongitude($event)" value={{addedCity.lng}} /></td>
+                            <td *ngIf="shouldEdit" ><input type="number" class="form-control" (input)="handleChangeLongitude($event)" value={{cityToEdit.lng}} /></td>
+                            <td *ngIf="shouldAdd"><input type="number" class="form-control" placeholder="Enter longitude" (input)="handleChangeLongitude($event)" value={{addedCity.lng}} /></td>
                         </tr>
                         <tr>
                             <th scope="col">latitude</th>
-                            <td *ngIf="shouldEdit" ><input type="text" class="form-control" placeholder="Enter latitude" (input)="handleChangelatitude($event)" value={{cityToEdit.lat}} /></td>
-                            <td *ngIf="shouldAdd" ><input type="text" class="form-control" placeholder="Enter latitude" (input)="handleChangelatitude($event)" value={{addedCity.lat}} /></td>
+                            <td *ngIf="shouldEdit" ><input type="number" class="form-control" placeholder="Enter latitude" (input)="handleChangelatitude($event)" value={{cityToEdit.lat}} /></td>
+                            <td *ngIf="shouldAdd" ><input type="number" class="form-control" placeholder="Enter latitude" (input)="handleChangelatitude($event)" value={{addedCity.lat}} /></td>
                         </tr>
                     </tbody>
                     <tfoot>

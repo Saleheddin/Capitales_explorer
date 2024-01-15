@@ -46,8 +46,9 @@
     </div>
     <app-editcapital *ngIf="shouldAdd || shouldEdit" 
     [closeEditcomp]="closeEditing" 
+    [closeAddcomp]="closeAdding" 
     [cityToEdit]="cityToEdit" 
-    [editCallbackFunction]="editCity" 
+    [editCallbackFunction]="editCallbackCity" 
     [addCallbackFunction]="addCallbackCity" 
     [shouldEdit]="shouldEdit" 
     [shouldAdd]="shouldAdd">

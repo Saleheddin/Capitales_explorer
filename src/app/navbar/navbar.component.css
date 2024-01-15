@@ -50,3 +50,24 @@
 .active{
     color: white;
 }
+@media (max-width:991px){
+    #navbarSupportedContent {
+        background: black;
+        color: white !important;
+        width: 50%;
+        margin: 0 0 0 50%;
+        position: absolute;
+        top: 60px;
+        right: 70px;
+        border-radius: 20px 0;
+        transition: ease-out 1s;
+        padding: 10px 0;
+        z-index: 2;
+    }
+
+    #navbarSupportedContent .nav-link{
+        color: white !important;
+        text-align: center;
+    }
+
+}

@@ -57,14 +57,12 @@ export class CapitalesService {
       this.upToDateCapitals[indexCity].lat = updatedCity.lat;
       this.upToDateCapitals[indexCity].lng = updatedCity.lng;
       this.upToDateCapitals[indexCity].population = updatedCity.population;
-  
-      // Save to local storage or perform any other necessary actions
+      // Save to local storage
       this.saveToLocalStorage(this.upToDateCapitals);
     }
-    
   }
 
-  deleteCity(cityName: String) {
+  deleteCity(cityName: string) {
     // Supprimer la ville de la liste
     this.upToDateCapitals = this.getCities();
     this.upToDateCapitals = this.upToDateCapitals.filter(marker => marker.name !== cityName);
